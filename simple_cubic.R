@@ -1,0 +1,32 @@
+library(rgl)
+my_data <- read.delim("SC.dat", header = FALSE, sep = "\t", dec = ".")
+x <- my_data$V1
+y <- my_data$V2
+z <- my_data$V3
+rad <- 0.1
+rgl.open()
+par3d(windowRect = c(20, 30, 800, 800))
+rgl.bg(color = "white")
+rgl.viewpoint(theta = 38, phi = 0, zoom = 0.9)
+rgl.spheres(x, y, z, radius = rad, color = "lightgrey")
+arrow3d(c(0, 0, 0), c(1, 0, 0), s = 0, type = "lines", col = "black")
+arrow3d(c(0, 0, 0), c(0, 1, 0), s = 0, type = "lines", col = "black")
+arrow3d(c(0, 0, 0), c(0, 0, 1), s = 0, type = "lines", col = "black")
+arrow3d(c(1, 0, 0), c(1, 0, 1), s = 0, type = "lines", col = "black")
+arrow3d(c(1, 0, 0), c(1, 1, 0), s = 0, type = "lines", col = "black")
+arrow3d(c(0, 1, 0), c(1, 1, 0), s = 0, type = "lines", col = "black")
+arrow3d(c(0, 1, 0), c(0, 1, 1), s = 0, type = "lines", col = "black")
+arrow3d(c(0, 1, 1), c(1, 1, 1), s = 0, type = "lines", col = "black")
+arrow3d(c(1, 1, 0), c(1, 1, 1), s = 0, type = "lines", col = "black")
+arrow3d(c(1, 0, 1), c(1, 1, 1), s = 0, type = "lines", col = "black")
+arrow3d(c(0, 0, 1), c(1, 0, 1), s = 0, type = "lines", col = "black")
+arrow3d(c(0, 0, 1), c(0, 1, 1), s = 0, type = "lines", col = "black")
+
+text3d(x = 0.5, y = 0, z = 1.1, texts = "a1", cex = 1.5, color = "black")
+arrow3d(c(0, 0, 1), c(0.9, 0, 1), s = 1/7, type = "rotation", col = "black")
+text3d(x = -0.1, y = 0.1, z = 0.5, texts = "a2", cex = 1.5, color = "black")
+arrow3d(c(0, 0, 1), c(0, 0, 0.1), s = 1/7, type = "rotation", col = "black")
+text3d(x = 0, y = 0.5, z = 1.1, texts = "a3", cex = 1.5, color = "black")
+arrow3d(c(0, 0, 1), c(0, 0.9, 1), s = 1/7, type = "rotation", col = "black")
+
+rglwidget()
